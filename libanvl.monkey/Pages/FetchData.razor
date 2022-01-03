@@ -1,0 +1,58 @@
+﻿@page "/fetchdata"
+@using libanvl.monkey.github
+@using libanvl.monkey.github.Model
+@using libanvl.monkey.theme.Model
+@using libanvl.monkey.theme.futureimperfect.Parts
+@inject GitHubApiHttpClient Http
+
+<PageTitle>GitHub API Rate Limits</PageTitle>
+
+@if (limits == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <Post Meta="@(new PageMeta{Title = "Rate Limits"})" EnableActions="@false">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Resource</th>
+                    <th>Limit</th>
+                    <th>Used</th>
+                    <th>Remaining</th>
+                    <th>Reset</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var limit in limits)
+                {
+                    <tr>
+                        <td>@limit.Resource</td>
+                        <td>@limit.Limit</td>
+                        <td>@limit.Used</td>
+                        <td>@limit.Remaining</td>
+                        <td>@limit.Reset</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </Post>
+}
+
+@code {
+    private List<Rate>? limits;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var rateLimits = await Http.GetRateLimitsAsync();
+        limits = new()
+            {
+                rateLimits.Resources.Core,
+                rateLimits.Resources.Graphql,
+                rateLimits.Resources.Search,
+                rateLimits.Resources.Integration_Manifest,
+            };
+    }
+}

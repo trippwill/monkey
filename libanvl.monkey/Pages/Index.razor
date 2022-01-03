@@ -1,0 +1,39 @@
+﻿@page "/"
+@using libanvl.monkey.theme.Model
+@using libanvl.monkey.theme.futureimperfect.Parts
+
+<Post Meta="@(new PageMeta
+{
+  Title =   "Ultricies sed magna euismod enim vitae gravida",
+  SubTitle = "Lorem ipsum dolor amet nullam consequat etiam feugiat",
+  FeaturedImage = new Image
+  {
+    Src = "/_content/libanvl.monkey.theme.futureimperfect/_theme/images/pic02.jpg",
+    Alt = "Just a picture"
+  }
+})">
+    <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper.</p>
+</Post>
+
+<Post Meta="@(new PageMeta
+{
+  Title =   "Euismod et accumsan",
+  SubTitle = "Lorem ipsum dolor amet nullam consequat etiam feugiat",
+  FeaturedImage = new Image
+  {
+    Src = "/_content/libanvl.monkey.theme.futureimperfect/_theme/images/pic03.jpg",
+    Alt = "Just a picture"
+  }
+})">
+    <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper.</p>
+</Post>
+
+<!-- Pagination -->
+<Actions Pagination="@true" Children="@(new [] {
+  new LargeButtonAction("Previous Page", "", "disabled", "previous"),
+  new LargeButtonAction("Next Page", "", "next"),
+})" />
+
+@code {
+
+}

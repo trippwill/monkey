@@ -1,0 +1,16 @@
+﻿@using libanvl.monkey
+@using libanvl.monkey.theme.futureimperfect.Shared
+@inject IThemedSiteFactory Theme
+
+<Router AppAssembly="@typeof(App).Assembly" AdditionalAssemblies="@Theme.GetAssemblies()">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@Theme.FoundDefaultLayoutType" />
+        <FocusOnNavigate RouteData="@routeData" Selector="@Theme.FocusOnNavigateSelector" />
+    </Found>
+    <NotFound>
+        <PageTitle>Not found</PageTitle>
+        <LayoutView Layout="@Theme.NotFoundLayoutType">
+            <NotFound />
+        </LayoutView>
+    </NotFound>
+</Router>
