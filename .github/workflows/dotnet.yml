@@ -4,9 +4,9 @@ on:
   push:
     tags-ignore:
       - v*
-    branches: [main, master, release/v*]
+    branches: [main, release/v*]
   pull_request:
-    branches: [main, master, release/v*]
+    branches: [main, release/v*]
   workflow_dispatch:
 
 concurrency:
