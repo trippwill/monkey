@@ -4,9 +4,9 @@ on:
   push:
     tags-ignore:
       - v*
-    branches: [main, release/v*]
+    branches: [main, master, release/v*]
   pull_request:
-    branches: [main, release/v*]
+    branches: [main, master, release/v*]
   workflow_dispatch:
 
 concurrency:
@@ -61,8 +61,6 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: nupkg
-      - name: Set Tag Version
-        run: echo "TAG_VERSION=$(cat ./nupkg/version.txt)" >> $GITHUB_ENV
       - name: Draft Release
         uses: softprops/action-gh-release@v0.1.13
         with:
