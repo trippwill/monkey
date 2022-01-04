@@ -23,7 +23,6 @@ jobs:
       runs-on: ubuntu-latest
       dotnet-version: 6.0.x
       dotnet-include-prerelease: true
-      package: true
   build-windows:
     uses: trippwill/monkey/.github/workflows/ci-call.yml@main
     with:
