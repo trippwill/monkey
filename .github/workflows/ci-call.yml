@@ -44,9 +44,6 @@ jobs:
   build:
     runs-on: ${{ inputs.runs-on }}
     steps:
-      - name: Print Full Env
-        run: printenv
-        continue-on-error: true
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup .NET Core

@@ -24,7 +24,7 @@ jobs:
   build-windows:
     uses: trippwill/monkey/.github/workflows/ci-call.yml@main
     with:
-      runs-on: ubuntu-latest
+      runs-on: windows-latest
       dotnet-version: 6.0.x
       dotnet-include-prerelease: true
     secrets:
@@ -33,7 +33,7 @@ jobs:
   build-macos:
     uses: trippwill/monkey/.github/workflows/ci-call.yml@main
     with:
-      runs-on: ubuntu-latest
+      runs-on: macos-latest
       dotnet-version: 6.0.x
       dotnet-include-prerelease: true
     secrets:
