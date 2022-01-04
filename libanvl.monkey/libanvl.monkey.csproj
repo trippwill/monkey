@@ -6,12 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>10</LangVersion>
     <RootNamespace>site.demo</RootNamespace>
+    <InvariantGlobalization>true</InvariantGlobalization>
     <MonkeyDevRoot Condition="'$(MonkeyDevRoot)' == ''">..\..\monkey\</MonkeyDevRoot>
     <MonkeyPackageVersion Condition="'$(MonkeyPackageVersion)' == ''">1.2.1-beta-g7ddcc2b84f</MonkeyPackageVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <RunAOTCompilation>True</RunAOTCompilation>
+    <PublishTrimmed>true</PublishTrimmed>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.1" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TrimmableAssembly Include="YamlDotNet" />
+    <TrimmableAssembly Include="Markdig" />
   </ItemGroup>
 
   <Choose>
