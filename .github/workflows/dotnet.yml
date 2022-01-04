@@ -1,0 +1,38 @@
+name: .NET 6
+
+on:
+  push:
+    branches: [main, prod]
+  pull_request:
+    branches: [main, prod]
+  workflow_dispatch:
+
+concurrency:
+  group: dotnet-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  LIBANVL_USER: ${{ secrets.FEEDUSER }}
+  LIBANVL_TOKEN: ${{ secrets.FEEDTOKEN }}
+
+jobs:
+  build-ubuntu:
+    uses: tripwill/monkey/.github/workflows/ci-call.yml@main
+    with:
+      runs-on: ubuntu-latest
+      dotnet-version: 6.0.x
+      dotnet-include-prerelease: true
+      package: true
+  build-windows:
+    uses: tripwill/monkey/.github/workflows/ci-call.yml@main
+    with:
+      runs-on: ubuntu-latest
+      dotnet-version: 6.0.x
+      dotnet-include-prerelease: true
+  build-macos:
+    uses: tripwill/monkey/.github/workflows/ci-call.yml@main
+    with:
+      runs-on: ubuntu-latest
+      dotnet-version: 6.0.x
+      dotnet-include-prerelease: true

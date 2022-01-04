@@ -1,0 +1,51 @@
+name: .NET CI
+
+on:
+  workflow_call:
+    inputs:
+      runs-on:
+        description: The OS to run on
+        type: string
+        default: ubuntu-latest
+        required: false
+      dotnet-version:
+        description: The dotnet version specifier
+        type: string
+        default: 6.0.x
+        required: false
+      dotnet-include-prerelease:
+        description: Whether to include dotnet prerelease version
+        type: boolean
+        default: true
+        required: false
+      dotnet-verbosity:
+        description: The log verbosity of dotnet commands
+        type: string
+        default: minimal
+        required: false
+      configuration:
+        description: The configuration to build
+        type: string
+        default: Release
+        required: false
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+
+jobs:
+  build:
+    runs-on: ${{ inputs.runs-on }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ inputs.dotnet-version }}
+          include-prerelease: ${{ inputs.dotnet-include-prerelease }}
+      - name: Restore
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration ${{ inputs.configuration }} --no-restore --verbosity ${{ inputs.dotnet-verbosity }} -p:ContinuousIntegrationBuild=true
+      - name: Test
+        run: dotnet test --configuration ${{ inputs.configuration }} --no-restore --no-build --verbosity ${{ inputs.dotnet-verbosity }}
