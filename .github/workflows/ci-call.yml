@@ -1,4 +1,4 @@
-name: .NET CI
+name: CI CORE
 
 on:
   workflow_call:
@@ -28,6 +28,11 @@ on:
         type: string
         default: Release
         required: false
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  LIBANVL_USER: ${{ secrets.FEEDUSER }}
+  LIBANVL_TOKEN: ${{ secrets.FEEDKEY }}
 
 jobs:
   build:

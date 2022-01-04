@@ -1,4 +1,4 @@
-name: .NET 6
+name: .NET 6 CI
 
 on:
   push:
@@ -11,11 +11,6 @@ concurrency:
   group: dotnet-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
-  LIBANVL_USER: ${{ secrets.FEEDUSER }}
-  LIBANVL_TOKEN: ${{ secrets.FEEDKEY }}
-
 jobs:
   build-ubuntu:
     uses: trippwill/monkey/.github/workflows/ci-call.yml@main
@@ -23,15 +18,24 @@ jobs:
       runs-on: ubuntu-latest
       dotnet-version: 6.0.x
       dotnet-include-prerelease: true
+    secrets:
+      FEEDUSER: ${{ secrets.FEEDUSER }}
+      FEEDKEY: ${{ secrets.FEEDKEY }}
   build-windows:
     uses: trippwill/monkey/.github/workflows/ci-call.yml@main
     with:
       runs-on: ubuntu-latest
       dotnet-version: 6.0.x
       dotnet-include-prerelease: true
+    secrets:
+      FEEDUSER: ${{ secrets.FEEDUSER }}
+      FEEDKEY: ${{ secrets.FEEDKEY }}
   build-macos:
     uses: trippwill/monkey/.github/workflows/ci-call.yml@main
     with:
       runs-on: ubuntu-latest
       dotnet-version: 6.0.x
       dotnet-include-prerelease: true
+    secrets:
+      FEEDUSER: ${{ secrets.FEEDUSER }}
+      FEEDKEY: ${{ secrets.FEEDKEY }}
