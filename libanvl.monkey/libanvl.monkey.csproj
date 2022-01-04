@@ -7,6 +7,7 @@
     <LangVersion>10</LangVersion>
     <RootNamespace>site.demo</RootNamespace>
     <MonkeyDevRoot Condition="'$(MonkeyDevRoot)' == ''">..\..\monkey\</MonkeyDevRoot>
+    <MonkeyPackageVersion Condition="'$(MonkeyPackageVersion)' == ''">1.2.1-beta-g7ddcc2b84f</MonkeyPackageVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -23,11 +24,11 @@
   <Choose>
     <When Condition="'$(CI)' == 'true'">
       <ItemGroup>
-        <PackageReference Include="libanvl.monkey.fetch" Version="1.1.1-beta-g28c2d2b066" />
-        <PackageReference Include="libanvl.monkey.github" Version="1.1.1-beta-g28c2d2b066" />
-        <PackageReference Include="libanvl.monkey.markdown" Version="1.1.1-beta-g28c2d2b066" />
-        <PackageReference Include="libanvl.monkey.syntaxhighlight" Version="1.1.1-beta-g28c2d2b066" />
-        <PackageReference Include="libanvl.monkey.theme.futureimperfect" Version="1.1.1-beta-g28c2d2b066" />
+        <PackageReference Include="libanvl.monkey.fetch" Version="$(MonkeyPackageVersion)" />
+        <PackageReference Include="libanvl.monkey.github" Version="$(MonkeyPackageVersion)" />
+        <PackageReference Include="libanvl.monkey.markdown" Version="$(MonkeyPackageVersion)" />
+        <PackageReference Include="libanvl.monkey.syntaxhighlight" Version="$(MonkeyPackageVersion)" />
+        <PackageReference Include="libanvl.monkey.theme.futureimperfect" Version="$(MonkeyPackageVersion)" />
       </ItemGroup>
     </When>
     <Otherwise>
