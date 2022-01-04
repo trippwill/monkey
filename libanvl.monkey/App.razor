@@ -1,6 +1,6 @@
 ﻿@using libanvl.monkey
 @using libanvl.monkey.theme.futureimperfect.Shared
-@inject IThemedSiteFactory Theme
+@inject IThemedSiteBuilder Theme
 
 <Router AppAssembly="@typeof(App).Assembly" AdditionalAssemblies="@Theme.GetAssemblies()">
     <Found Context="routeData">

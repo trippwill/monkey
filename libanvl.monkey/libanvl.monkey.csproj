@@ -9,6 +9,10 @@
     <MonkeyDevRoot Condition="'$(MonkeyDevRoot)' == ''">..\..\monkey\</MonkeyDevRoot>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <RunAOTCompilation>True</RunAOTCompilation>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.1" PrivateAssets="all" />
@@ -17,7 +21,16 @@
   </ItemGroup>
 
   <Choose>
-    <When Condition="'$(CI)' == ''">
+    <When Condition="'$(CI)' == 'true'">
+      <ItemGroup>
+        <PackageReference Include="libanvl.monkey.fetch" Version="1.1.1-beta-g28c2d2b066" />
+        <PackageReference Include="libanvl.monkey.github" Version="1.1.1-beta-g28c2d2b066" />
+        <PackageReference Include="libanvl.monkey.markdown" Version="1.1.1-beta-g28c2d2b066" />
+        <PackageReference Include="libanvl.monkey.syntaxhighlight" Version="1.1.1-beta-g28c2d2b066" />
+        <PackageReference Include="libanvl.monkey.theme.futureimperfect" Version="1.1.1-beta-g28c2d2b066" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
       <ItemGroup>
         <ProjectReference Include="$(MonkeyDevRoot)libanvl.monkey.core\libanvl.monkey.core.csproj" />
         <ProjectReference Include="$(MonkeyDevRoot)libanvl.monkey.fetch\libanvl.monkey.fetch.csproj" />
@@ -25,15 +38,6 @@
         <ProjectReference Include="$(MonkeyDevRoot)libanvl.monkey.markdown\libanvl.monkey.markdown.csproj" />
         <ProjectReference Include="$(MonkeyDevRoot)libanvl.monkey.syntaxhighlight\libanvl.monkey.syntaxhighlight.csproj" />
         <ProjectReference Include="$(MonkeyDevRoot)libanvl.monkey.theme.futureimperfect\libanvl.monkey.theme.futureimperfect.csproj" />
-      </ItemGroup>
-    </When>
-    <Otherwise>
-      <ItemGroup>
-        <PackageReference Include="libanvl.monkey.fetch" Version="1.1.1-beta-g28c2d2b066" />
-        <PackageReference Include="libanvl.monkey.github" Version="1.1.1-beta-g28c2d2b066" />
-        <PackageReference Include="libanvl.monkey.markdown" Version="1.1.1-beta-g28c2d2b066" />
-        <PackageReference Include="libanvl.monkey.syntaxhighlight" Version="1.1.1-beta-g28c2d2b066" />
-        <PackageReference Include="libanvl.monkey.theme.futureimperfect" Version="1.1.1-beta-g28c2d2b066" />
       </ItemGroup>
     </Otherwise>
   </Choose>
