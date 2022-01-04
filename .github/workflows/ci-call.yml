@@ -51,6 +51,8 @@ jobs:
         with:
           dotnet-version: ${{ inputs.dotnet-version }}
           include-prerelease: ${{ inputs.dotnet-include-prerelease }}
+      - name: Install Wasm Tools Workload
+        run: dotnet workload install wasm-tools
       - name: Restore
         run: dotnet restore
       - name: Build
