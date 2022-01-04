@@ -18,7 +18,7 @@
 
   <Choose>
     <When Condition="'$(CI)' == ''">
-      <ItemGroup >
+      <ItemGroup>
         <ProjectReference Include="$(MonkeyDevRoot)libanvl.monkey.core\libanvl.monkey.core.csproj" />
         <ProjectReference Include="$(MonkeyDevRoot)libanvl.monkey.fetch\libanvl.monkey.fetch.csproj" />
         <ProjectReference Include="$(MonkeyDevRoot)libanvl.monkey.github\libanvl.monkey.github.csproj" />
