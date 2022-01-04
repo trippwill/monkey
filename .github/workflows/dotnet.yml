@@ -18,20 +18,20 @@ env:
 
 jobs:
   build-ubuntu:
-    uses: tripwill/monkey/.github/workflows/ci-call.yml@main
+    uses: trippwill/monkey/.github/workflows/ci-call.yml@main
     with:
       runs-on: ubuntu-latest
       dotnet-version: 6.0.x
       dotnet-include-prerelease: true
       package: true
   build-windows:
-    uses: tripwill/monkey/.github/workflows/ci-call.yml@main
+    uses: trippwill/monkey/.github/workflows/ci-call.yml@main
     with:
       runs-on: ubuntu-latest
       dotnet-version: 6.0.x
       dotnet-include-prerelease: true
   build-macos:
-    uses: tripwill/monkey/.github/workflows/ci-call.yml@main
+    uses: trippwill/monkey/.github/workflows/ci-call.yml@main
     with:
       runs-on: ubuntu-latest
       dotnet-version: 6.0.x
