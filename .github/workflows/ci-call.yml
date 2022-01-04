@@ -29,11 +29,6 @@ on:
         default: Release
         required: false
 
-env:
-  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
-  LIBANVL_USER: ${{ secrets.FEEDUSER }}
-  LIBANVL_TOKEN: ${{ secrets.FEEDKEY }}
-
 jobs:
   build:
     runs-on: ${{ inputs.runs-on }}

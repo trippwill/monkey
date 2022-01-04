@@ -31,6 +31,10 @@ on:
         required: false
         default: 'false'
 
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  LIBANVL_USER: ${{ secrets.FEEDUSER }}
+  LIBANVL_TOKEN: ${{ secrets.FEEDKEY }}
 
 jobs:
   print-context:
