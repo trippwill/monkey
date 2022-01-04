@@ -28,6 +28,12 @@ on:
         type: string
         default: Release
         required: false
+    secrets:
+      FEEDUSER:
+        required: true
+      FEEDKEY:
+        required: true
+
 
 env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
