@@ -31,6 +31,8 @@ on:
 
 env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  LIBANVL_USER: ${{ secrets.FEEDUSER }}
+  LIBANVL_TOKEN: ${{ secrets.FEEDTOKEN }}
 
 jobs:
   build:
