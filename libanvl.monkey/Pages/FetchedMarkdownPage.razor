@@ -3,23 +3,23 @@
 @using libanvl.monkey
 @using libanvl.monkey.theme.futureimperfect.Parts
 @using libanvl.monkey.theme.Model
+@using site.demo.Shared
 
     <Fetch ClientName="libanvl.github.io" Path="@($"page/{PageRoute}.md")">
         <Found Context="result">
             <RenderedMarkdown TMeta="PageMeta" Markdown="@result" Context="mdcontext">
                 <Post Meta="@mdcontext.Meta" EnableActions="@false">
-                    <SyntaxHighlight AdditionalLanguages="@(new[] {"go", "rust"})"
-                        CodeThemeHref="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css">
+                    <SyntaxHighlight AdditionalLanguages="@(new[] {"go", "rust"})" ContainerClass="code-container">
                         @mdcontext.Markup
                     </SyntaxHighlight>
                 </Post>
             </RenderedMarkdown>
         </Found>
         <NotFound>
-            <libanvl.monkey.theme.futureimperfect.Shared.NotFound />
+          <NotFound />
         </NotFound>
         <Loading>
-          <site.demo.Shared.Loading />
+          <Loading />
         </Loading>
     </Fetch>
 
