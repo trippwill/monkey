@@ -1,5 +1,4 @@
 ﻿@using libanvl.monkey
-@using libanvl.monkey.theme.futureimperfect.Shared
 @inject IThemedSiteBuilder Theme
 
 <Router AppAssembly="@typeof(App).Assembly" AdditionalAssemblies="@Theme.GetAssemblies()">
@@ -10,7 +9,7 @@
     <NotFound>
         <PageTitle>Not found</PageTitle>
         <LayoutView Layout="@Theme.NotFoundLayoutType">
-            <NotFound />
+          <site.demo.Shared.NotFound />
         </LayoutView>
     </NotFound>
 </Router>
