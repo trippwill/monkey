@@ -1,4 +1,5 @@
 using libanvl.monkey;
+using libanvl.monkey.metal;
 using libanvl.monkey.theme.futureimperfect;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -9,7 +10,7 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.AddThemedSiteBuilder(new FutureImperfectSiteBuilder());
+builder.AddThemedSiteBuilder(new FutureImperfect());
 
 #if DEBUG
 Console.WriteLine(builder.Configuration.GetDebugView());
