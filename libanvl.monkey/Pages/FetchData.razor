@@ -1,8 +1,9 @@
 ﻿@page "/fetchdata"
-@using libanvl.monkey.github
-@using libanvl.monkey.github.Model
-@using libanvl.monkey.theme.Model
-@using libanvl.monkey.theme.futureimperfect.Parts
+@layout MonkeySingleLayout
+@using libanvl.monkey
+@using libanvl.monkey.Model
+@using libanvl.monkey.metal
+@using libanvl.monkey.metal.Model
 @inject GitHubApiHttpClient Http
 
 <PageTitle>GitHub API Rate Limits</PageTitle>
@@ -13,7 +14,7 @@
 }
 else
 {
-    <Post Meta="@(new PageMeta{Title = "Rate Limits"})" EnableActions="@false">
+    <MonkeyPage Meta="@(new PageMeta{Title = "Rate Limits"})" EnableActions="@false">
 
         <table class="table">
             <thead>
@@ -38,7 +39,7 @@ else
                 }
             </tbody>
         </table>
-    </Post>
+    </MonkeyPage>
 }
 
 @code {

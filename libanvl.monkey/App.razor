@@ -1,14 +1,15 @@
 ﻿@using libanvl.monkey
+@using libanvl.monkey.theme
 @inject IThemedSiteBuilder Theme
 
 <Router AppAssembly="@typeof(App).Assembly" AdditionalAssemblies="@Theme.GetAssemblies()">
     <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@Theme.FoundDefaultLayoutType" />
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MonkeyMainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="@Theme.FocusOnNavigateSelector" />
     </Found>
     <NotFound>
         <PageTitle>Not found</PageTitle>
-        <LayoutView Layout="@Theme.NotFoundLayoutType">
+        <LayoutView Layout="@typeof(MonkeySingleLayout)">
           <site.demo.Shared.NotFound />
         </LayoutView>
     </NotFound>

@@ -1,18 +1,19 @@
 ﻿@page "/page/{*pageRoute}"
-
+@layout MonkeySingleLayout
 @using libanvl.monkey
-@using libanvl.monkey.theme.futureimperfect.Parts
-@using libanvl.monkey.theme.Model
+@using libanvl.monkey.Model
+@using libanvl.monkey.metal
+@using libanvl.monkey.theme.futureimperfect.Shared
 @using site.demo.Shared
 
     <Fetch ClientName="libanvl.github.io" Path="@($"page/{PageRoute}.md")">
         <Found Context="result">
             <RenderedMarkdown TMeta="PageMeta" Markdown="@result" Context="mdcontext">
-                <Post Meta="@mdcontext.Meta" EnableActions="@false">
+                <MonkeyPage Meta="@mdcontext.Meta" EnableActions="@false">
                     <SyntaxHighlight AdditionalLanguages="@(new[] {"go", "rust"})" ContainerClass="code-container">
                         @mdcontext.Markup
                     </SyntaxHighlight>
-                </Post>
+                </MonkeyPage>
             </RenderedMarkdown>
         </Found>
         <NotFound>

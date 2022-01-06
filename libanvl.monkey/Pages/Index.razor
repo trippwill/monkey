@@ -1,8 +1,9 @@
 ﻿@page "/"
-@using libanvl.monkey.theme.Model
-@using libanvl.monkey.theme.futureimperfect.Parts
+@using libanvl.monkey
+@using libanvl.monkey.Model
+@using libanvl.monkey.site
 
-<Post Meta="@(new PageMeta
+<MonkeyPage Meta="@(new PageMeta
 {
   Title =   "Ultricies sed magna euismod enim vitae gravida",
   SubTitle = "Lorem ipsum dolor amet nullam consequat etiam feugiat",
@@ -13,9 +14,9 @@
   }
 })">
     <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper.</p>
-</Post>
+</MonkeyPage>
 
-<Post Meta="@(new PageMeta
+<MonkeyPage Meta="@(new PageMeta
 {
   Title =   "Euismod et accumsan",
   SubTitle = "Lorem ipsum dolor amet nullam consequat etiam feugiat",
@@ -26,10 +27,10 @@
   }
 })">
     <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper.</p>
-</Post>
+</MonkeyPage>
 
 <!-- Pagination -->
-<Actions Pagination="@true" Children="@(new [] {
+<MonkeyActionsBlock Pagination="@true" Children="@(new [] {
   new LargeButtonAction("Previous Page", "", "disabled", "previous"),
   new LargeButtonAction("Next Page", "", "next"),
 })" />
