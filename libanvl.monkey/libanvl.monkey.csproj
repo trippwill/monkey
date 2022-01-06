@@ -8,11 +8,11 @@
     <RootNamespace>site.demo</RootNamespace>
     <InvariantGlobalization>true</InvariantGlobalization>
     <MonkeyDevRoot Condition="'$(MonkeyDevRoot)' == ''">..\..\monkey\</MonkeyDevRoot>
-    <MonkeyPackageVersion Condition="'$(MonkeyPackageVersion)' == ''">2.0.1-beta-g57f7c370d0</MonkeyPackageVersion>
+    <MonkeyPackageVersion Condition="'$(MonkeyPackageVersion)' == ''">2.0.6-beta-gaa57b77250</MonkeyPackageVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <PublishTrimmed>true</PublishTrimmed>
+    <PublishTrimmed Condition="'$(PublishTrimmed)' == ''">true</PublishTrimmed>
   </PropertyGroup>
 
   <ItemGroup>
